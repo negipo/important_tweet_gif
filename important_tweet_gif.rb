@@ -65,7 +65,7 @@ class ExtremelyImportantTweetImageBuilder
 
   def image
     image = Magick::Image.new(500, 300) do
-      color = "#%06x" % (rand * 0xffffff)
+      color = "##{'%02x%02x%02x' % [rand * 0x33, rand * 0x33, rand * 0x33]}"
       self.background_color = color
     end
     draw = Magick::Draw.new
