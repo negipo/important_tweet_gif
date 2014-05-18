@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
 Bundler.require
-require 'pry'
-require 'twitter'
-require 'dotenv'
-require 'rmagick'
-
 Dotenv.load '.env'
 
 def client
@@ -65,7 +60,7 @@ class ExtremelyImportantTweetImageBuilder
 
   def image
     image = Magick::Image.new(500, 300) do
-      color = "##{'%02x%02x%02x' % [rand * 0x33, rand * 0x33, rand * 0x33]}"
+      color = '#%02x%02x%02x' % [rand * 0x33, rand * 0x33, rand * 0x33]
       self.background_color = color
     end
     draw = Magick::Draw.new
